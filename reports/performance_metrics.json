@@ -1,0 +1,9 @@
+{
+    "model": "Linear Regression",
+    "train_size_percentage": 70,
+    "test_size_percentage": 30,
+    "mae": 0.4407,
+    "mse": 0.329,
+    "rmse": 0.5736,
+    "r2_score": 0.7365
+}

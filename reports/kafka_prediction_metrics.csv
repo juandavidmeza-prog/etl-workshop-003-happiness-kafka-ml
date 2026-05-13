@@ -1,0 +1,5 @@
+metric,value
+MAE,0.4407
+MSE,0.329
+RMSE,0.5736
+R2 Score,0.7365
