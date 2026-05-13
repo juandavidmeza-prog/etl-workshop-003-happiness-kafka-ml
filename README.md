@@ -1,9 +1,7 @@
 # Workshop 003 - ETL Process using Apache Kafka + Machine Learning
 
-![World Happiness Map 2024](reports/figures/happiness_map_2024.png)
-
+![World Happiness Map 2024](happiness_map_2024.png)
 ## Project Overview
-
 This project was developed for the **ETL Workshop 003: ETL Process using Apache Kafka + Machine Learning**.
 
 The main objective of the project is to build a complete data pipeline that takes World Happiness Report data, cleans and transforms it, sends the information through Apache Kafka, and uses a machine learning model to predict the happiness score of each record.
@@ -30,56 +28,7 @@ The project uses the following technologies:
 - SQLite
 - kafka-python
 - GitHub
-
 ---
-
-## Project Structure
-
-```text
-etl-workshop-003-happiness-kafka-ml/
-│
-├── data/
-│   ├── raw/
-│   │   ├── 2015.csv
-│   │   ├── 2016.csv
-│   │   ├── 2017.csv
-│   │   ├── 2018.csv
-│   │   └── 2019.csv
-│   │
-│   └── processed/
-│       ├── happiness_clean.csv
-│       └── happiness_stream_data.csv
-│
-├── models/
-│   └── happiness_model.pkl
-│
-├── reports/
-│   ├── figures/
-│   │   └── happiness_map_2024.png
-│   ├── correlation_matrix.csv
-│   ├── descriptive_statistics.csv
-│   ├── kafka_prediction_metrics.csv
-│   ├── kafka_predictions_report.csv
-│   ├── performance_metrics.json
-│   └── test_predictions.csv
-│
-├── src/
-│   ├── 01_data_cleaning.py
-│   ├── 02_eda_visualization.py
-│   ├── 03_train_model.py
-│   ├── 04_prepare_stream_data.py
-│   ├── 05_kafka_producer.py
-│   ├── 06_kafka_consumer.py
-│   ├── 07_export_predictions.py
-│   └── 08_performance_visualization.py
-│
-├── docker-compose.yml
-├── requirements.txt
-└── README.md
-```
-
----
-
 ## ETL Pipeline Explanation
 
 This project follows an ETL process. ETL means **Extract, Transform, and Load**.
@@ -89,26 +38,10 @@ The idea was to take the original happiness data, clean it, prepare it, send it 
 The complete process works like this:
 
 ```text
-Raw CSV files
-     ↓
-Data cleaning and transformation
-     ↓
-Exploratory data analysis
-     ↓
-Feature selection
-     ↓
-Model training
-     ↓
-Kafka Producer sends records
-     ↓
-Kafka Consumer receives records
-     ↓
-The trained model predicts the happiness score
-     ↓
-Predictions are stored in SQLite
-     ↓
-Reports and visualizations are generated
-```
+The project begins with the raw happiness data. 
+I cleaned and analyzed the information, selected the most useful variables, and trained a regression model. 
+Then, Kafka was used to send and receive the data record by record. 
+The trained model predicted the happiness score, and the results were stored in SQLite for reports and visualizations.
 
 In this pipeline, the data does not only stay in a CSV file. It is transformed, streamed, predicted, stored, and analyzed. This makes the project closer to a real data engineering and machine learning workflow.
 
@@ -116,7 +49,7 @@ In this pipeline, the data does not only stay in a CSV file. It is transformed, 
 
 ## Data Source
 
-The data comes from the **World Happiness Report** datasets from different years, mainly from 2015 to 2019.
+The data comes from the "World Happiness Report" datasets from different years, mainly from 2015 to 2019.
 
 Each CSV file contains information about countries and different factors that may influence happiness. Some of these factors are related to the economy, family or social support, health, freedom, generosity, and trust in institutions.
 
@@ -132,14 +65,21 @@ The original files were stored in the `data/raw/` folder. Since the project uses
 
 During this step, the project did the following tasks:
 
-- Loaded the CSV files from the raw data folder.
-- Reviewed the structure of the datasets.
-- Standardized column names.
-- Removed columns that were not necessary for the prediction process.
-- Checked missing values.
-- Kept the most useful numerical variables.
-- Integrated the data into a cleaner format.
-- Saved the final cleaned dataset in the `data/processed/` folder.
+Raw CSV files
+     ↓
+Review the data structure
+     ↓
+Clean and organize the columns
+     ↓
+Remove unnecessary information
+     ↓
+Check missing values
+     ↓
+Keep the most useful numerical variables
+     ↓
+Create one cleaner dataset
+     ↓
+Save the final data in data/processed/
 
 This step was important because the machine learning model needs organized and consistent data. If the data is not clean, the predictions can be incorrect or the code can fail.
 
@@ -378,7 +318,7 @@ The project helped demonstrate how data engineering and machine learning can wor
 In conclusion, this project is not only a model training exercise. It is a complete pipeline that connects data cleaning, Kafka streaming, machine learning prediction, database storage, and result analysis.
 
 
-## Project Structure
+## Project Structure Final Part (Distribution)
 
 ```text
 etl-workshop-003-happiness-kafka-ml/
